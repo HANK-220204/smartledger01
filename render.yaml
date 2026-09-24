@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: smartledger
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    healthCheckPath: /
+    envVars:
+      - key: SMARTLEDGER_SECRET_KEY
+        generateValue: true
